@@ -282,8 +282,10 @@ export default {
         this.notifier.form.forEach((f) => {
           let field = f.field.toLowerCase()
           let val = this.notifier[field]
-          if (this.isNumeric(val)) {
-            val = parseInt(val)
+          if ('password' !== field) {
+            if (this.isNumeric(val)) {
+                val = parseInt(val)
+            }
           }
           this.form[field] = val
         });
